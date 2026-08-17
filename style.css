@@ -1375,3 +1375,9 @@ header{
   .hero-date{margin:16px 0;}
   .scroll{margin-top:18px;}
 }
+
+
+/* V22: move only the invitation line lower on phones; keep names/date/buttons in place */
+@media(max-width:560px){
+  .hero-small{transform:translateY(0)!important;}
+}

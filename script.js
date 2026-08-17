@@ -13,7 +13,7 @@ window.openWeddingInvitationDirect = function(){
      Mobile Safari/Chrome may block play() if it is delayed with setTimeout. */
   try{
     if(audio){
-      audio.volume=0.50;
+      audio.volume=0.30;
       var bg=audio.play();
       if(bg && bg.then){
         bg.then(function(){
@@ -55,11 +55,11 @@ window.openWeddingInvitationDirect = function(){
     }
     if(audio && !audio.paused){
       /* soft fade up after the opening animation */
-      var target=.50;
+      var target=.30;
       var step=0;
       var fade=setInterval(function(){
         step++;
-        audio.volume=.50;
+        audio.volume=.30;
         if(audio.volume>=target || step>12) clearInterval(fade);
       },70);
     }
@@ -185,7 +185,7 @@ function syncSoundButton(){
   soundBtn.classList.toggle("is-playing", !weddingAudio.paused);
 }
 
-async function startMelody(volume=0.50){
+async function startMelody(volume=0.30){
   if(!weddingAudio) return false;
   try{
     weddingAudio.volume = volume;
@@ -216,7 +216,7 @@ if(soundBtn){
     e.preventDefault();
     e.stopPropagation();
     if(!weddingAudio) return;
-    if(weddingAudio.paused) await startMelody(0.50);
+    if(weddingAudio.paused) await startMelody(0.30);
     else stopMelody();
   }, false);
 }
