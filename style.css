@@ -1324,3 +1324,45 @@ header{
   .choice-grid{gap:7px}
   .choice-pill span{min-height:38px;padding:8px 11px;font-size:11px}
 }
+
+/* V16 — mobile polish + animated RSVP confirmation */
+@media(max-width:700px){
+  .hero-small{transform:translateY(-92px);margin-bottom:-72px;text-shadow:0 2px 14px rgba(25,31,22,.7)}
+}
+@media(max-width:420px){
+  .hero-small{transform:translateY(-82px);margin-bottom:-62px;font-size:9.5px;letter-spacing:2.45px}
+}
+@media(max-width:560px){
+  .alcohol-multi{padding:24px 14px 16px;margin-top:8px!important;overflow:visible}
+  .alcohol-multi legend{display:block;max-width:calc(100% - 22px);padding:3px 8px;margin-left:6px;background:#fbf7f2;border-radius:8px;line-height:1.4;white-space:normal}
+  .choice-grid{margin-top:10px}
+}
+
+.rsvp-confirmation{
+  position:fixed;inset:0;z-index:12000;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:rgba(43,51,40,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;
+}
+.rsvp-confirmation.show{opacity:1;visibility:visible}
+.rsvp-confirmation-card{
+  width:min(92vw,430px);padding:34px 24px 30px;text-align:center;border-radius:30px;
+  background:linear-gradient(145deg,#fffdf9,#f8eeeb);border:1px solid rgba(201,125,137,.22);
+  box-shadow:0 28px 80px rgba(55,62,50,.22);transform:translateY(24px) scale(.94);opacity:0;
+}
+.rsvp-confirmation.show .rsvp-confirmation-card{animation:rsvpCardIn .75s cubic-bezier(.2,.8,.2,1) .12s forwards}
+.rsvp-rings{position:relative;height:74px;margin:0 auto 8px;width:118px}
+.rsvp-ring{position:absolute;top:13px;width:52px;height:52px;border:4px solid #caa24e;border-radius:50%;opacity:0;box-shadow:0 0 0 1px rgba(255,255,255,.6) inset}
+.rsvp-ring.one{left:5px;transform:translateX(-55px) rotate(-18deg)}
+.rsvp-ring.two{right:5px;transform:translateX(55px) rotate(18deg)}
+.rsvp-confirmation.show .rsvp-ring.one{animation:ringMeetLeft .9s cubic-bezier(.2,.8,.2,1) .25s forwards}
+.rsvp-confirmation.show .rsvp-ring.two{animation:ringMeetRight .9s cubic-bezier(.2,.8,.2,1) .25s forwards}
+.rsvp-spark{position:absolute;left:50%;top:0;font-size:22px;color:#d7ad56;opacity:0;transform:translateX(-50%) scale(.2)}
+.rsvp-confirmation.show .rsvp-spark{animation:rsvpSpark .8s ease 1s forwards}
+.rsvp-confirmation h3{margin:4px 0 10px;font:600 34px/1.05 "Cormorant Garamond",Georgia,serif;color:#596653}
+.rsvp-confirmation p{margin:0;color:#777a72;line-height:1.65;font-size:14px}
+.rsvp-confirmation .signature{margin-top:14px;color:#c57986;font:600 23px "Cormorant Garamond",Georgia,serif}
+.rsvp-confirmation-close{margin-top:22px;border:0;border-radius:999px;padding:13px 24px;background:linear-gradient(135deg,#d88d95,#c97d89);color:white;letter-spacing:1px;cursor:pointer}
+@keyframes rsvpCardIn{to{transform:none;opacity:1}}
+@keyframes ringMeetLeft{0%{opacity:0;transform:translateX(-55px) rotate(-18deg) scale(.7)}70%{opacity:1;transform:translateX(13px) rotate(-5deg) scale(1.06)}100%{opacity:1;transform:translateX(20px) rotate(-5deg) scale(1)}}
+@keyframes ringMeetRight{0%{opacity:0;transform:translateX(55px) rotate(18deg) scale(.7)}70%{opacity:1;transform:translateX(-13px) rotate(5deg) scale(1.06)}100%{opacity:1;transform:translateX(-20px) rotate(5deg) scale(1)}}
+@keyframes rsvpSpark{0%{opacity:0;transform:translateX(-50%) scale(.2) rotate(0)}55%{opacity:1;transform:translateX(-50%) scale(1.3) rotate(35deg)}100%{opacity:1;transform:translateX(-50%) scale(1) rotate(0)}}

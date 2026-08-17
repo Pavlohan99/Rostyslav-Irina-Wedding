@@ -53,7 +53,7 @@
 <div class="welcome-hearts">♡　♡　♡</div>
 </div>
 </div>
-<audio id="weddingAudio" loop preload="auto"><source src="assets/na-dobryi-den-wedding-style-V9.wav?v=9" type="audio/wav"></audio>
+<audio id="weddingAudio" loop preload="auto"><source src="assets/ukrainian-wedding-dance-V17.wav?v=17" type="audio/wav"></audio>
 <header>
 <button aria-label="Меню" class="hamb"><i></i><i></i><i></i></button>
 <div class="logo brand-name"><span class="brand-rings" aria-hidden="true"><i></i><i></i></span><span class="brand-text">Ростислав <b>і</b> Ірина</span></div>
@@ -237,7 +237,7 @@
 </fieldset>
 
 <button class="btn" type="submit">НАДІСЛАТИ ВІДПОВІДЬ ♡</button>
-<div class="success" id="success">Дякуємо ❤️ Вашу відповідь отримано.</div>
+<div class="success" id="success" style="display:none">Дякуємо ❤️ Вашу відповідь отримано.</div>
 </form>
 </div>
 </div>
@@ -271,5 +271,15 @@
 </main>
 <script defer="" src="script.js"></script>
 <audio id="openChime" preload="auto"><source src="assets/open-chime.wav" type="audio/wav"></audio>
+
+<div class="rsvp-confirmation" id="rsvpConfirmation" aria-hidden="true">
+  <div class="rsvp-confirmation-card" role="dialog" aria-modal="true" aria-labelledby="rsvpThanksTitle">
+    <div class="rsvp-rings"><span class="rsvp-ring one"></span><span class="rsvp-ring two"></span><span class="rsvp-spark">✦</span></div>
+    <h3 id="rsvpThanksTitle">Дякуємо за підтвердження!</h3>
+    <p>Ми отримали вашу відповідь 🤍<br>До зустрічі 17 жовтня!</p>
+    <div class="signature">Ростислав та Ірина</div>
+    <button class="rsvp-confirmation-close" id="rsvpConfirmationClose" type="button">ЗАКРИТИ ♡</button>
+  </div>
+</div>
 </body>
 </html>

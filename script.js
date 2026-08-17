@@ -95,6 +95,20 @@ window.openWeddingInvitationDirect = function(){
 
 const formEl=document.getElementById("form");
 const successEl=document.getElementById("success");
+const rsvpConfirmation=document.getElementById("rsvpConfirmation");
+const rsvpConfirmationClose=document.getElementById("rsvpConfirmationClose");
+function showRsvpConfirmation(){
+  if(!rsvpConfirmation) return;
+  rsvpConfirmation.classList.add("show");
+  rsvpConfirmation.setAttribute("aria-hidden","false");
+}
+function hideRsvpConfirmation(){
+  if(!rsvpConfirmation) return;
+  rsvpConfirmation.classList.remove("show");
+  rsvpConfirmation.setAttribute("aria-hidden","true");
+}
+if(rsvpConfirmationClose) rsvpConfirmationClose.addEventListener("click",hideRsvpConfirmation);
+if(rsvpConfirmation) rsvpConfirmation.addEventListener("click",function(e){if(e.target===rsvpConfirmation) hideRsvpConfirmation();});
 
 function validateRequiredGroups(){
   let ok=true;
@@ -142,7 +156,9 @@ if(formEl){
         headers:{Accept:"application/json"}
       });
       if(response.ok){
-        if(successEl) successEl.style.display="block";
+        if(successEl) successEl.style.display="none";
+        formEl.classList.add("submitted-ok");
+        setTimeout(showRsvpConfirmation,180);
         formEl.reset();
         validateRequiredGroups();
       }else{
