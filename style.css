@@ -1366,3 +1366,12 @@ header{
 @keyframes ringMeetLeft{0%{opacity:0;transform:translateX(-55px) rotate(-18deg) scale(.7)}70%{opacity:1;transform:translateX(13px) rotate(-5deg) scale(1.06)}100%{opacity:1;transform:translateX(20px) rotate(-5deg) scale(1)}}
 @keyframes ringMeetRight{0%{opacity:0;transform:translateX(55px) rotate(18deg) scale(.7)}70%{opacity:1;transform:translateX(-13px) rotate(5deg) scale(1.06)}100%{opacity:1;transform:translateX(-20px) rotate(5deg) scale(1)}}
 @keyframes rsvpSpark{0%{opacity:0;transform:translateX(-50%) scale(.2) rotate(0)}55%{opacity:1;transform:translateX(-50%) scale(1.3) rotate(35deg)}100%{opacity:1;transform:translateX(-50%) scale(1) rotate(0)}}
+
+
+/* V21: requested hero text placement — lower on phone so faces stay clear */
+@media(max-width:560px){
+  .hero-content{margin-top:34vh!important;}
+  .hero-small{margin-bottom:8px;}
+  .hero-date{margin:16px 0;}
+  .scroll{margin-top:18px;}
+}
